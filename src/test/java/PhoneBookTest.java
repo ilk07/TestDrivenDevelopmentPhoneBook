@@ -141,4 +141,79 @@ public class PhoneBookTest {
         assertEquals(expected, actual);
     }
 
+
+    @Test
+    @DisplayName("Find number by name")
+    public void testFindByName(){
+
+        String name = "Max";
+        String phone = "+7 800 700 60 40";
+
+        String name2 = "Gretta";
+        String phone2 = "+7 800 700 60 50";
+
+        String name3 = "Bill";
+        String phone3 = "+7 800 700 60 60";
+
+        sut.add(name,phone);
+        sut.add(name2,phone2);
+        sut.add(name3,phone3);
+
+        String actual = sut.findByName(name);
+
+        String expected = "+7 800 700 60 40";
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Find number by name which is empty")
+    public void testFindByNameWhichIsEmpty(){
+
+        String actual = sut.findByName("");
+
+        String expected = "Имя не указано";
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Find number by name which is null")
+    public void testFindByNameWhichIsNull(){
+
+        String actual = sut.findByName(null);
+
+        String expected = "Имя не существует";
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Find by name that is not in the list")
+    public void testFindByNameNonExistentName(){
+
+        String name = "Max";
+        String phone = "+7 800 700 60 40";
+
+        sut.add(name,phone);
+
+        String actual = sut.findByName("Grace");
+
+        String expected = "Контакт не найден";
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Find by name in an empty list")
+    public void testFindByNameEmptyContactList(){
+
+        String actual = sut.findByName("Gram");
+
+        String expected = "Список контактов пуст";
+
+        assertEquals(expected, actual);
+    }
+
+
 }

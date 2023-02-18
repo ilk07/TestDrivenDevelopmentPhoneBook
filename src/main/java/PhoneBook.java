@@ -40,4 +40,9 @@ public class PhoneBook {
                     .orElse("Контакт не найден");
         }
     }
+
+    public String findByName(String name) {
+        //найти номер по имени без полного перебора;
+        return null;
+    }
 }
