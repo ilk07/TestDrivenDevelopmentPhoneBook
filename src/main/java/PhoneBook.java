@@ -1,5 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
+
+import static java.lang.System.*;
 
 public class PhoneBook {
 
@@ -59,8 +62,13 @@ public class PhoneBook {
         return contacts.getOrDefault(name, "Контакт не найден");
     }
 
-    public void printAllNames(){
+    protected void printAllNames() {
         //вывести все имена в алфавитном порядке без необходимости проводить сортировку
-        System.out.println();
+        if (contacts.isEmpty()) {
+            out.println("Список контактов пуст");
+        } else {
+            Map<String, String> sortedMap = new TreeMap<>(contacts);
+            sortedMap.forEach((key, value) -> out.println(key.trim()));
+        }
     }
 }
