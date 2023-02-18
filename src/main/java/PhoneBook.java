@@ -20,18 +20,18 @@ public class PhoneBook {
         return contacts.size();
     }
 
-    public String findByNumber(String phone){
+    public String findByNumber(String phone) {
         //найти имя по номеру без полного перебора
 
-        if (phone == null){
+        if (phone == null) {
             return "Номер не существует";
         }
 
-        if(phone.trim().equals("")){
+        if (phone.trim().equals("")) {
             return "Номер не указан";
         }
 
-        if(contacts.isEmpty()){
+        if (contacts.isEmpty()) {
             return "Список контактов пуст";
         } else {
             return contacts.entrySet().stream()
@@ -43,6 +43,19 @@ public class PhoneBook {
 
     public String findByName(String name) {
         //найти номер по имени без полного перебора;
-        return null;
+
+        if (name == null) {
+            return "Имя не существует";
+        }
+
+        if (name.trim().equals("")) {
+            return "Имя не указано";
+        }
+
+        if (contacts.isEmpty()) {
+            return "Список контактов пуст";
+        }
+
+        return contacts.getOrDefault(name, "Контакт не найден");
     }
 }

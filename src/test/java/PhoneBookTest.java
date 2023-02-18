@@ -69,7 +69,7 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Find name by number")
-    public void testFindByNumber(){
+    public void testFindByNumber() {
 
         String name = "Max";
         String phone = "+7 800 700 60 40";
@@ -80,9 +80,9 @@ public class PhoneBookTest {
         String name3 = "Bill";
         String phone3 = "+7 800 700 60 60";
 
-        sut.add(name,phone);
-        sut.add(name2,phone2);
-        sut.add(name3,phone3);
+        sut.add(name, phone);
+        sut.add(name2, phone2);
+        sut.add(name3, phone3);
 
         String actual = sut.findByNumber(phone2);
 
@@ -93,7 +93,7 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Find name by number which is empty")
-    public void testFindByNumberWhichIsEmpty(){
+    public void testFindByNumberWhichIsEmpty() {
 
         String actual = sut.findByNumber("");
 
@@ -104,7 +104,7 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Find name by number which is null")
-    public void testFindByNumberWhichIsNull(){
+    public void testFindByNumberWhichIsNull() {
 
         String actual = sut.findByNumber(null);
 
@@ -115,13 +115,13 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Find by number that is not in the list")
-    public void testFindByNumberNonExistentNumber(){
+    public void testFindByNumberNonExistentNumber() {
 
         String name = "Max";
         String phone = "+7 800 700 60 40";
 
 
-        sut.add(name,phone);
+        sut.add(name, phone);
 
         String actual = sut.findByNumber("+7 700 700 70 70");
 
@@ -132,7 +132,7 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Find by number in an empty list")
-    public void testFindByNumberEmptyContactList(){
+    public void testFindByNumberEmptyContactList() {
 
         String actual = sut.findByNumber("+7 700 700 70 70");
 
@@ -144,7 +144,7 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Find number by name")
-    public void testFindByName(){
+    public void testFindByName() {
 
         String name = "Max";
         String phone = "+7 800 700 60 40";
@@ -155,9 +155,9 @@ public class PhoneBookTest {
         String name3 = "Bill";
         String phone3 = "+7 800 700 60 60";
 
-        sut.add(name,phone);
-        sut.add(name2,phone2);
-        sut.add(name3,phone3);
+        sut.add(name, phone);
+        sut.add(name2, phone2);
+        sut.add(name3, phone3);
 
         String actual = sut.findByName(name);
 
@@ -168,7 +168,7 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Find number by name which is empty")
-    public void testFindByNameWhichIsEmpty(){
+    public void testFindByNameWhichIsEmpty() {
 
         String actual = sut.findByName("");
 
@@ -179,7 +179,7 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Find number by name which is null")
-    public void testFindByNameWhichIsNull(){
+    public void testFindByNameWhichIsNull() {
 
         String actual = sut.findByName(null);
 
@@ -190,12 +190,12 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Find by name that is not in the list")
-    public void testFindByNameNonExistentName(){
+    public void testFindByNameNonExistentName() {
 
         String name = "Max";
         String phone = "+7 800 700 60 40";
 
-        sut.add(name,phone);
+        sut.add(name, phone);
 
         String actual = sut.findByName("Grace");
 
@@ -206,7 +206,7 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Find by name in an empty list")
-    public void testFindByNameEmptyContactList(){
+    public void testFindByNameEmptyContactList() {
 
         String actual = sut.findByName("Gram");
 
@@ -214,6 +214,5 @@ public class PhoneBookTest {
 
         assertEquals(expected, actual);
     }
-
 
 }
