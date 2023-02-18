@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
+import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PhoneBookTest {
@@ -211,6 +211,36 @@ public class PhoneBookTest {
         String actual = sut.findByName("Gram");
 
         String expected = "Список контактов пуст";
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Print names in ASC order")
+    void testPrintAllNames() throws Exception {
+
+        sut.add("Johan", "+952 87 98 56");
+        sut.add("Anna", "+902 27 38 50");
+        sut.add("Christie", "+32 11 00 50");
+
+        String expected = String.join("\r\n", "Anna", "Christie", "Johan");
+
+        String actual = tapSystemOut(() -> {
+            sut.printAllNames();
+        }).trim();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Print names from empty list")
+    public void testPrintAllNamesFromEmptyContactList() throws Exception {
+
+        String expected = "Список контактов пуст";
+
+        String actual = tapSystemOut(() -> {
+            sut.printAllNames();
+        }).trim();
 
         assertEquals(expected, actual);
     }

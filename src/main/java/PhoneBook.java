@@ -58,4 +58,9 @@ public class PhoneBook {
 
         return contacts.getOrDefault(name, "Контакт не найден");
     }
+
+    public void printAllNames(){
+        //вывести все имена в алфавитном порядке без необходимости проводить сортировку
+        System.out.println();
+    }
 }
